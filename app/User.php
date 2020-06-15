@@ -17,6 +17,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password',
+        'avatar','phone','mobile','full_name','date_of_birth',
+        'job','address',
     ];
 
     /**
@@ -35,5 +37,12 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'mobile_verified_at'=>'datetime',
+        'approved_at'=>'datetime',
     ];
+
+    public function document()
+     {
+         return $this->hasOne(document::class);
+     }
 }
